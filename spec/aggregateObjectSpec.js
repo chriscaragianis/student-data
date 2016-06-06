@@ -24,6 +24,17 @@ describe('Aggregate', () => {
       subject.attach('newData', {eyes: 'blue'});
       expect(subject.newData.eyes).toEqual('brown');
     });
+
+    it('attaches from database', () => {
+      var dbase = {
+                    get: () => {
+                      return {name: 'Travis'};
+                    }
+                  };
+      var subject = new Aggregate({database: dbase});
+      subject.attach('data', 'resourceName');
+      expect(subject.data.name).toEqual('Travis');
+    });
   });
 
   describe('detach', () => {
