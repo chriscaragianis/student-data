@@ -1,4 +1,5 @@
 'use strict';
+var Aggregate = require('../lib/Aggregate');
 
 describe('Aggregate', () => {
 
